@@ -1,0 +1,75 @@
+/**
+ * LC POC Model definitions
+ */
+
+namespace com.lc.poc
+
+/**
+ * Customer participant 
+ */
+participant Customer identified by customerId {
+  o String customerId
+}
+
+/**
+ * Buyer Customer 
+ */
+participant Applicant extends Customer {
+  o String applicantNumber
+}
+
+/**
+ * Supplier Customer 
+ */
+participant Beneficiary extends Customer {
+  o String beneficiaryNumber
+}
+
+/**
+ * Bank participant 
+ */
+participant Bank identified by bankId {
+  o String bankId
+}
+
+/**
+ * Issuing Bank 
+ */
+
+participant IssueBank extends Bank {
+  o String issueBankNumber
+}
+
+/**
+ * Advising Bank 
+ */
+participant AdvisorBank extends Bank {
+  o String advisorBankNumber
+}
+
+/**
+ * Letter Of Credit Application Asset 
+ */
+asset LetterOfCreditApplication identified by lcApplicationId {
+  o String lcApplicationId
+  o Double amount
+  --> Applicant application
+  --> Beneficiary beneficiary
+} 
+
+/**
+ * Letter Of Credit Asset 
+ */
+asset LetterOfCredit identified by lcId {
+  o String lcId
+  o String adviceNumber
+  o DateTime adviceDate
+  o DateTime expiryDate
+  o Double amount
+  --> Applicant applicant
+  --> LetterOfCreditApplication lcApplication
+  --> IssueBank issueBank
+  --> Beneficiary beneficiary
+  --> AdvisorBank advisorBank
+
+}
