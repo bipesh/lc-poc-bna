@@ -5,9 +5,9 @@
   "scripts": {
     "test": "mocha --recursive"
   },
-  "author": "Bipesh",
-  "email": "bipesh.pokharel@gmail.com",
-  "license": "lcpoc@2018",
+  "author": "iBriz",
+  "email": "team@iBriz.ai",
+  "license": "iBriz@2018",
   "devDependencies": {
     "composer-admin": "latest",
     "composer-client": "latest",
